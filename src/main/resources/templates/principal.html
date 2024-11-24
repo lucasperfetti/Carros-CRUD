@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Página inicial</title>
+    <link rel="stylesheet" th:href="@{css/styles.css}">
+</head>
+<body>
+    <nav>
+        <h1 title="Página principal"><a th:href="@{/}">Carros.com</a></h1>
+        <ul>
+            <li><a th:href="@{/cadastro}" id="link__cadastro">Cadastrar</a></li>
+            <li><a th:href="@{/listagem}" id="link__listagem">Listar</a></li>
+        </ul>
+    </nav>
+    <img th:src="@{images/carros-1.jpg}" alt="Carros reunidos em uma estrada">
+    <div class="container">
+        <div>
+            <h2>Crie uma lista com os seus carros favoritos.</h2>
+            <p>Utilize a função de Cadastrar Carro para inserir um novo veículo na lista. Na opção Listar carros, você pode vizualizar, atualizar e excluir os carros adicionados.</p>
+        </div>
+        <div class="container__links">
+            <a th:href="@{/cadastro}" id="link__cadastro">Cadastrar Carro</a>
+            <a th:href="@{/listagem}" id="link__listagem">Listar Carros</a>
+        </div>
+    </div>
+</body>
+</html>

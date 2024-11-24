@@ -1,0 +1,21 @@
+server: 
+    port: 8080
+
+spring:
+    datasource:
+        url: jdbc:postgresql://dpg-ct1j32jtq21c73epddbg-a.oregon-postgres.render.com:5432/postgredb_cry4
+        username: postgredb_cry4_user
+        password: rQG9SSnHNAjEPj8msAhcBRxqvgZxGvio
+        driver-class-name: org.postgresql.Driver
+        initialize: true
+    
+    jpa:
+        hibernate:
+            ddl-auto: create-drop
+            generate-ddl: true
+        
+    sql:
+        init:
+            schema-locations: classpath:/schema-postgresql.sql
+            mode: always
+            platform: postgres

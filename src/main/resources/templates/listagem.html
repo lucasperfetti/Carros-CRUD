@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <title>Lista de Carros</title>
+        <link rel="stylesheet" th:href="@{css/styles.css}">
+    </head>
+    <body>
+        <nav>
+            <h1 title="Página principal"><a th:href="@{/}">Carros.com</a></h1>
+            <h2>Lista de Carros</h2>
+            <ul>
+                <li><a th:href="@{/cadastro}" id="link__cadastro">Cadastrar</a></li>
+                <li><a th:href="@{/listagem}" id="link__listagem">Listar</a></li>
+            </ul>
+        </nav>
+        <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Cor</th>
+                    <th>Ano</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="carro : ${carros}">
+                    <td th:text="${carro.id}"></td>
+                    <td th:text="${carro.marca}"></td>
+                    <td th:text="${carro.modelo}"></td>
+                    <td th:text="${carro.cor}"></td>
+                    <td th:text="${carro.ano}"></td>
+                    <td><a th:href="@{'/atualizar/' + ${carro.id}}" class="btn">Atualizar</a></td>
+                    <td>
+                        <form th:action="@{'/deletar/' + ${carro.id}}" method="post">
+                            <input type="submit" value="Apagar">
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </body>
+</html>
